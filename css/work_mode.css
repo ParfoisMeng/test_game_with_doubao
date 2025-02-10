@@ -1,0 +1,128 @@
+body {
+    font-family: 'Times New Roman', serif;
+    background-color: #fff;
+    color: #333;
+    margin: 20px;
+}
+
+#game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+#player-info,
+#enemy-info {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+#player-info p,
+#enemy-info p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+#attack-button,
+#reset-button,
+#auto-battle-button {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-right: 10px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#attack-button:hover,
+#reset-button:hover,
+#auto-battle-button:hover {
+    background-color: #d0d0d0;
+}
+
+#skill-buttons {
+    margin-bottom: 20px;
+}
+
+#skill-buttons button {
+    padding: 6px 12px;
+    margin-right: 8px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.3s;
+}
+
+#skill-buttons button:hover {
+    background-color: #d0d0d0;
+}
+
+#battle-log {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    padding: 10px;
+    background-color: #fff;
+}
+
+#battle-log p {
+    margin-top: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#log-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#log-list li {
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+#speed-select {
+    margin-bottom: 10px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+#auto-skill-checkbox {
+    margin-bottom: 10px;
+}
+
+#mode-toggle-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 8px 15px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#mode-toggle-button:hover {
+    background-color: #d0d0d0;
+}

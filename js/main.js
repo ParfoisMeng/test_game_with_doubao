@@ -34,4 +34,29 @@ window.onload = function () {
     if (resetButton) {
         resetButton.addEventListener('click', resetGame);
     }
+
+    // 绑定模式切换按钮事件
+    const modeToggleButton = document.getElementById('mode-toggle-button');
+    if (modeToggleButton) {
+        modeToggleButton.addEventListener('click', toggleMode);
+    }
 };
+
+function toggleMode() {
+    const styleLink = document.getElementById('style-link');
+    const titleElement = document.querySelector('title');
+    const h1Element = document.querySelector('h1');
+    const modeToggleButton = document.getElementById('mode-toggle-button');
+
+    if (styleLink.href.endsWith('work_mode.css')) {
+        styleLink.href = 'css/game_mode.css';
+        titleElement.textContent = '🎮包暗黑豆🎮';
+        h1Element.textContent = '🎮包暗黑豆🎮';
+        modeToggleButton.textContent = '切换到摸鱼模式';
+    } else {
+        styleLink.href = 'css/work_mode.css';
+        titleElement.textContent = '📄工作文档📄';
+        h1Element.textContent = '📄工作文档📄';
+        modeToggleButton.textContent = '切换到游戏模式';
+    }
+}

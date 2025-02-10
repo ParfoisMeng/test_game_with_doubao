@@ -2,7 +2,7 @@ function generateUI() {
     const gameContainer = document.getElementById('game-container');
 
     const title = document.createElement('h1');
-    title.textContent = '简易恶龙传说升级、装备与技能系统';
+    title.textContent = '📄工作文档📄';
     gameContainer.appendChild(title);
 
     const playerInfoDiv = document.createElement('div');
@@ -49,8 +49,7 @@ function generateUI() {
 
     const speedSelect = document.createElement('select');
     speedSelect.id = 'speed-select';
-    // 修改为生成 1 - 10 倍速的选项
-    for (let i = 1; i <= 10; i++) { 
+    for (let i = 1; i <= 10; i++) {
         const option = document.createElement('option');
         option.value = i;
         option.textContent = `${i} 倍速`;
@@ -85,8 +84,9 @@ function addLog(message) {
     const logList = document.getElementById('log-list');
     const listItem = document.createElement('li');
     listItem.textContent = message;
-    logList.prepend(listItem); // 新日志添加到列表顶部
-    logList.scrollTop = 0; // 滚动到顶部
+    listItem.classList.add('log-item');
+    logList.prepend(listItem);
+    logList.scrollTop = 0;
 }
 
 function resetGame() {
@@ -134,6 +134,17 @@ function resetGame() {
     const speedSelect = document.getElementById('speed-select');
     speedSelect.value = 1;
     battleSpeed = 1;
+
+    const modeToggleButton = document.getElementById('mode-toggle-button');
+    if (document.getElementById('style-link').href.endsWith('work_mode.css')) {
+        document.querySelector('title').textContent = '📄工作文档📄';
+        document.querySelector('h1').textContent = '📄工作文档📄';
+        modeToggleButton.textContent = '切换到游戏模式';
+    } else {
+        document.querySelector('title').textContent = '🎮包暗黑豆🎮';
+        document.querySelector('h1').textContent = '🎮包暗黑豆🎮';
+        modeToggleButton.textContent = '切换到摸鱼模式';
+    }
 
     // 重新装备初始装备
     equipInitialEquipment();
