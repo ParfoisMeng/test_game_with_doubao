@@ -1,0 +1,239 @@
+[
+    {
+        "name": "青铜头盔",
+        "type": "头盔",
+        "healthRange": [10, 20],
+        "attackRange": [3, 7],
+        "skill": null
+    },
+    {
+        "name": "白银头盔",
+        "type": "头盔",
+        "healthRange": [20, 30],
+        "attackRange": [6, 10],
+        "skill": {
+            "name": "头部守护",
+            "damage": 0,
+            "healthBoost": 20,
+            "cooldown": 4
+        }
+    },
+    {
+        "name": "黄金头盔",
+        "type": "头盔",
+        "healthRange": [30, 40],
+        "attackRange": [10, 15],
+        "skill": {
+            "name": "王者之威",
+            "damage": 15,
+            "cooldown": 3
+        }
+    },
+    {
+        "name": "皮革胸甲",
+        "type": "胸甲",
+        "healthRange": [15, 25],
+        "attackRange": [2, 5],
+        "skill": null
+    },
+    {
+        "name": "铁质胸甲",
+        "type": "胸甲",
+        "healthRange": [25, 35],
+        "attackRange": [4, 8],
+        "skill": {
+            "name": "钢铁壁垒",
+            "damage": 0,
+            "healthBoost": 25,
+            "cooldown": 5
+        }
+    },
+    {
+        "name": "秘银胸甲",
+        "type": "胸甲",
+        "healthRange": [35, 45],
+        "attackRange": [8, 12],
+        "skill": {
+            "name": "秘银守护",
+            "damage": 20,
+            "cooldown": 4
+        }
+    },
+    {
+        "name": "粗布手套",
+        "type": "手套",
+        "healthRange": [3, 8],
+        "attackRange": [1, 3],
+        "skill": null
+    },
+    {
+        "name": "青铜手套",
+        "type": "手套",
+        "healthRange": [8, 13],
+        "attackRange": [3, 6],
+        "skill": {
+            "name": "手套重击",
+            "damage": 10,
+            "cooldown": 3
+        }
+    },
+    {
+        "name": "钻石手套",
+        "type": "手套",
+        "healthRange": [13, 18],
+        "attackRange": [6, 9],
+        "skill": {
+            "name": "钻石之力",
+            "damage": 25,
+            "cooldown": 4
+        }
+    },
+    {
+        "name": "简易护腿",
+        "type": "护腿",
+        "healthRange": [10, 18],
+        "attackRange": [2, 5],
+        "skill": null
+    },
+    {
+        "name": "白银护腿",
+        "type": "护腿",
+        "healthRange": [18, 26],
+        "attackRange": [4, 7],
+        "skill": {
+            "name": "护腿突袭",
+            "damage": 15,
+            "cooldown": 3
+        }
+    },
+    {
+        "name": "紫金护腿",
+        "type": "护腿",
+        "healthRange": [26, 34],
+        "attackRange": [6, 9],
+        "skill": {
+            "name": "紫金守护",
+            "damage": 0,
+            "healthBoost": 30,
+            "cooldown": 5
+        }
+    },
+    {
+        "name": "草鞋",
+        "type": "鞋子",
+        "healthRange": [5, 12],
+        "attackRange": [1, 3],
+        "skill": null
+    },
+    {
+        "name": "皮靴",
+        "type": "鞋子",
+        "healthRange": [10, 17],
+        "attackRange": [2, 5],
+        "skill": {
+            "name": "疾风步",
+            "damage": 0,
+            "healthBoost": 15,
+            "cooldown": 3
+        }
+    },
+    {
+        "name": "水晶鞋",
+        "type": "鞋子",
+        "healthRange": [15, 22],
+        "attackRange": [3, 6],
+        "skill": {
+            "name": "水晶闪耀",
+            "damage": 20,
+            "cooldown": 4
+        }
+    },
+    {
+        "name": "木剑",
+        "type": "武器",
+        "healthRange": [3, 8],
+        "attackRange": [10, 20],
+        "skill": null
+    },
+    {
+        "name": "铁剑",
+        "type": "武器",
+        "healthRange": [5, 10],
+        "attackRange": [20, 30],
+        "skill": {
+            "name": "铁剑斩击",
+            "damage": 30,
+            "cooldown": 3
+        }
+    },
+    {
+        "name": "魔法剑",
+        "type": "武器",
+        "healthRange": [8, 13],
+        "attackRange": [30, 40],
+        "skill": {
+            "name": "魔法冲击斩",
+            "damage": 40,
+            "cooldown": 4
+        }
+    },
+    {
+        "name": "铜戒指",
+        "type": "戒指",
+        "healthRange": [4, 9],
+        "attackRange": [2, 5],
+        "skill": null
+    },
+    {
+        "name": "银戒指",
+        "type": "戒指",
+        "healthRange": [7, 12],
+        "attackRange": [4, 7],
+        "skill": {
+            "name": "戒指魔力",
+            "damage": 18,
+            "cooldown": 3
+        }
+    },
+    {
+        "name": "金戒指",
+        "type": "戒指",
+        "healthRange": [10, 15],
+        "attackRange": [6, 9],
+        "skill": {
+            "name": "黄金之力",
+            "damage": 22,
+            "cooldown": 4
+        }
+    },
+    {
+        "name": "贝壳项链",
+        "type": "项链",
+        "healthRange": [3, 8],
+        "attackRange": [1, 3],
+        "skill": null
+    },
+    {
+        "name": "珍珠项链",
+        "type": "项链",
+        "healthRange": [6, 11],
+        "attackRange": [2, 5],
+        "skill": {
+            "name": "珍珠守护",
+            "damage": 0,
+            "healthBoost": 20,
+            "cooldown": 4
+        }
+    },
+    {
+        "name": "宝石项链",
+        "type": "项链",
+        "healthRange": [9, 14],
+        "attackRange": [3, 6],
+        "skill": {
+            "name": "宝石光芒",
+            "damage": 25,
+            "cooldown": 4
+        }
+    }
+]

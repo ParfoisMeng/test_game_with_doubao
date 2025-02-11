@@ -1,88 +1,73 @@
-// 装备列表
-const equipmentList = [
-    {
-        name: "青铜剑",
-        health: 20,
-        attack: 20,
-        skill: {
-            name: "利刃斩",
-            damage: 25,
-            cooldown: 2
-        }
-    },
-    {
-        name: "白银甲",
-        health: 40,
-        attack: 10,
-        skill: {
-            name: "守护壁垒",
-            damage: 0,
-            healthBoost: 30,
-            cooldown: 3
-        }
-    },
-    {
-        name: "黄金法杖",
-        health: 30,
-        attack: 30,
-        skill: {
-            name: "魔法冲击",
-            damage: 35,
-            cooldown: 2
-        }
-    }
-];
+let equipmentList = [];
+const initialEquipmentName = "木剑";
 
-// 初始装备
-const initialEquipment = {
-    name: "新手剑",
-    health: 10,
-    attack: 10,
-    skill: null
-};
+// 从 JSON 文件加载装备数据
+async function loadEquipmentData() {
+    try {
+        const response = await fetch('../data/equipment.json');
+        equipmentList = await response.json();
+        // 找到初始装备
+        const initialEquip = equipmentList.find(equip => equip.name === initialEquipmentName);
+        if (initialEquip) {
+            const equippedInitial = generateRandomStats(initialEquip);
+            equipInitialEquipment(equippedInitial);
+        }
+    } catch (error) {
+        console.error('加载装备数据时出错:', error);
+    }
+}
+
+function generateRandomStats(equipment) {
+    const health = Math.floor(Math.random() * (equipment.healthRange[1] - equipment.healthRange[0] + 1)) + equipment.healthRange[0];
+    const attack = Math.floor(Math.random() * (equipment.attackRange[1] - equipment.attackRange[0] + 1)) + equipment.attackRange[0];
+    return {
+        ...equipment,
+        health,
+        attack
+    };
+}
 
 function equip(equipment) {
-    if (getPlayerEquipment()) {
-        const currentTotal = getPlayerEquipment().health + getPlayerEquipment().attack;
+    const currentEquip = playerEquipment[equipment.type];
+    if (currentEquip) {
+        const currentTotal = currentEquip.health + currentEquip.attack;
         const newTotal = equipment.health + equipment.attack;
         if (newTotal > currentTotal) {
-            // 移除当前装备的属性加成
-            playerHealth -= getPlayerEquipment().health;
-            playerAttack -= getPlayerEquipment().attack;
-            playerEquipment = equipment;
-            // 添加新装备的属性加成
-            playerHealth += equipment.health;
-            playerAttack += equipment.attack;
-            updatePlayerInfo();
-            addLog(`玩家装备了 ${equipment.name}，生命值提升到 ${playerHealth}，攻击力提升到 ${playerAttack}`);
+            removeEquipmentAttributes(currentEquip);
+            if (currentEquip.skill) {
+                removeEquipmentSkill(currentEquip.skill);
+            }
+            playerEquipment[equipment.type] = equipment;
+            addEquipmentAttributes(equipment);
+            addLog(`玩家装备了 ${equipment.name}（生命值: ${equipment.health}，攻击力: ${equipment.attack}），总生命值提升到 ${playerHealth}，总攻击力提升到 ${playerAttack}`);
             if (equipment.skill) {
                 learnEquipmentSkill(equipment.skill);
             }
         } else {
-            addLog(`当前装备属性更优，未替换为 ${equipment.name}`);
+            addLog(`当前 ${equipment.type} 属性更优，未替换为 ${equipment.name}（生命值: ${equipment.health}，攻击力: ${equipment.attack}）`);
         }
     } else {
-        playerEquipment = equipment;
-        playerHealth += equipment.health;
-        playerAttack += equipment.attack;
-        updatePlayerInfo();
-        addLog(`玩家装备了 ${equipment.name}，生命值提升到 ${playerHealth}，攻击力提升到 ${playerAttack}`);
+        playerEquipment[equipment.type] = equipment;
+        addEquipmentAttributes(equipment);
+        addLog(`玩家装备了 ${equipment.name}（生命值: ${equipment.health}，攻击力: ${equipment.attack}），总生命值提升到 ${playerHealth}，总攻击力提升到 ${playerAttack}`);
         if (equipment.skill) {
             learnEquipmentSkill(equipment.skill);
         }
     }
+    updatePlayerInfo();
 }
 
-function equipInitialEquipment() {
-    equip(initialEquipment);
+function equipInitialEquipment(equipment) {
+    equip(equipment);
 }
 
 function dropEquipment() {
     const hasDroppedEquipment = Math.random() < 0.4; // 40% 概率掉落装备
     if (hasDroppedEquipment) {
         const randomIndex = Math.floor(Math.random() * equipmentList.length);
-        const droppedEquipment = equipmentList[randomIndex];
-        addLog(`恭喜！恶龙掉落了 ${droppedEquipment.name}！`);
+        const baseEquipment = equipmentList[randomIndex];
+        const droppedEquipment = generateRandomStats(baseEquipment);
+        addLog(`恭喜！恶龙掉落了 ${droppedEquipment.name}（生命值: ${droppedEquipment.health}，攻击力: ${droppedEquipment.attack}）！`);
         equip(droppedEquipment);
     }
 }
@@ -91,8 +76,45 @@ function learnEquipmentSkill(skill) {
     if (!playerSkills.some(s => s.name === skill.name)) {
         playerSkills.push(skill);
         skillCooldowns[skill.name] = 0;
-        updatePlayerInfo();
         addLog(`玩家学会了装备技能: ${skill.name}`);
         createSkillButton(skill);
+        updatePlayerInfo();
     }
+}
+
+function removeEquipmentSkill(skill) {
+    const skillIndex = playerSkills.findIndex(s => s.name === skill.name);
+    if (skillIndex!== -1) {
+        playerSkills.splice(skillIndex, 1);
+        delete skillCooldowns[skill.name];
+        addLog(`玩家失去了装备技能: ${skill.name}`);
+        const skillButton = document.querySelector(`[data-skill="${skill.name}"]`);
+        if (skillButton) {
+            skillButton.remove();
+        }
+        updatePlayerInfo();
+    }
+}
+
+function createSkillButton(skill) {
+    const skillButtonsDiv = document.getElementById('skill-buttons');
+    if (!skillButtonsDiv) {
+        console.error('未找到技能按钮容器');
+        return;
+    }
+    const button = document.createElement('button');
+    button.textContent = skill.name;
+    button.dataset.skill = skill.name;
+    button.addEventListener('click', () => useSkill(skill));
+    skillButtonsDiv.appendChild(button);
+}
+
+function addEquipmentAttributes(equipment) {
+    playerHealth += equipment.health;
+    playerAttack += equipment.attack;
+}
+
+function removeEquipmentAttributes(equipment) {
+    playerHealth -= equipment.health;
+    playerAttack -= equipment.attack;
 }
