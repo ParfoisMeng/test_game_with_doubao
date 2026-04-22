@@ -1,0 +1,26 @@
+[
+    {
+        "name": "恶龙",
+        "baseHealth": 100,
+        "baseAttack": 10,
+        "description": "强大而凶猛的恶龙，具有很高的攻击力和生命值。"
+    },
+    {
+        "name": "狼人",
+        "baseHealth": 80,
+        "baseAttack": 12,
+        "description": "敏捷且凶狠的狼人，攻击速度较快。"
+    },
+    {
+        "name": "骷髅法师",
+        "baseHealth": 60,
+        "baseAttack": 15,
+        "description": "擅长魔法攻击的骷髅法师，能造成高额的魔法伤害。"
+    },
+    {
+        "name": "巨型蜘蛛",
+        "baseHealth": 90,
+        "baseAttack": 11,
+        "description": "体型巨大的蜘蛛，会吐出剧毒的蛛网。"
+    }
+]
