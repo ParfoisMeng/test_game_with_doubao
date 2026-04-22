@@ -1,0 +1,715 @@
+/* ========== Excel 风格工作看板主题（默认） ========== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Calibri, Arial, sans-serif;
+  background-color: #e8e8e8;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+#game-container {
+  max-width: 760px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+h1 {
+  font-size: 14px;
+  font-weight: normal;
+  color: #333;
+  margin: 0;
+  padding: 6px 12px;
+  background: linear-gradient(180deg, #f3f3f3 0%, #e1e1e1 100%);
+  border-bottom: 1px solid #b4b4b4;
+}
+
+/* ========== 双列面板布局 ========== */
+.panels-row {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.panel + .panel {
+  border-left: 1px solid #d0d0d0;
+}
+
+.panel-header {
+  background: linear-gradient(180deg, #4472C4 0%, #3a62a8 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 4px 8px;
+  text-align: left;
+  border-bottom: 1px solid #3a62a8;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.enemy-panel .panel-header {
+  background: linear-gradient(180deg, #548235 0%, #476e2d 100%);
+  border-color: #476e2d;
+}
+
+.panel-body {
+  padding: 0;
+}
+
+/* ========== 属性行 ========== */
+.stat-row {
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+  min-height: 24px;
+  align-items: center;
+}
+
+.stat-label {
+  width: 64px;
+  min-width: 64px;
+  padding: 2px 8px;
+  background-color: #f2f2f2;
+  font-weight: 500;
+  color: #555;
+  font-size: 12px;
+  border-right: 1px solid #e0e0e0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.stat-value {
+  flex: 1;
+  padding: 2px 8px;
+  font-size: 12px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stat-row:hover {
+  background-color: #f0f6ff;
+}
+
+/* ========== 进度条 ========== */
+.bar-row {
+  padding: 1px 8px 3px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #e8e8e8;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid #d0d0d0;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.hp-bar .progress-fill {
+  background: linear-gradient(90deg, #4caf50, #66bb6a);
+}
+
+.hp-bar .hp-low {
+  background: linear-gradient(90deg, #ff9800, #ffa726);
+}
+
+.hp-bar .hp-critical {
+  background: linear-gradient(90deg, #f44336, #ef5350);
+}
+
+.hp-bar .hp-enemy {
+  background: linear-gradient(90deg, #548235, #6ea04b);
+}
+
+.hp-bar .hp-elite {
+  background: linear-gradient(90deg, #e67e00, #f5a623);
+}
+
+.hp-bar .hp-boss {
+  background: linear-gradient(90deg, #c00000, #e53935);
+}
+
+.exp-bar .progress-fill {
+  background: linear-gradient(90deg, #4472C4, #5b8fd9);
+}
+
+/* ========== 装备栏 ========== */
+.equip-section {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.equip-title {
+  width: auto;
+  padding: 2px 8px;
+  border-bottom: 1px solid #f0f0f0;
+  display: block;
+}
+
+.equip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.equip-slot {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 6px;
+  font-size: 11px;
+  border-bottom: 1px solid #f8f8f8;
+  border-right: 1px solid #f8f8f8;
+  min-height: 20px;
+  cursor: default;
+}
+
+.equip-slot:hover {
+  background: #f0f6ff;
+}
+
+.slot-icon {
+  font-size: 11px;
+  width: 16px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.equip-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.equip-empty {
+  color: #ccc !important;
+}
+
+/* ========== 敌人类型 ========== */
+.enemy-boss .panel-header,
+.panel-header.enemy-boss {
+  background: linear-gradient(180deg, #c00000 0%, #a00000 100%) !important;
+  border-color: #a00000 !important;
+}
+
+.enemy-elite .panel-header,
+.panel-header.enemy-elite {
+  background: linear-gradient(180deg, #e67e00 0%, #cc6d00 100%) !important;
+  border-color: #cc6d00 !important;
+}
+
+.enemy-type-badge {
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.3);
+}
+
+.affix-text {
+  color: #ff8c00 !important;
+  font-size: 11px;
+}
+
+/* ========== 巅峰面板 ========== */
+#paragon-panel {
+  padding: 4px 8px;
+  background: #fffde7;
+  border-bottom: 1px solid #d0d0d0;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.paragon-header {
+  font-weight: 600;
+  color: #b8860b;
+}
+
+.paragon-exp {
+  font-weight: normal;
+  color: #999;
+  font-size: 11px;
+}
+
+.paragon-stats {
+  color: #888;
+  font-size: 11px;
+}
+
+.paragon-allocate {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+.paragon-points {
+  color: #b8860b;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.paragon-btn {
+  padding: 1px 8px;
+  background: linear-gradient(180deg, #fff8dc 0%, #f5e6a3 100%);
+  border: 1px solid #d4aa00;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 11px;
+  color: #8b6914;
+  height: 20px;
+}
+
+.paragon-btn:hover {
+  background: linear-gradient(180deg, #f5e6a3 0%, #e6d48a 100%);
+}
+
+.paragon-summary {
+  text-align: center;
+  font-size: 12px;
+  color: #b8860b;
+  padding: 4px;
+  background: #fffde7;
+  border: 1px solid #e6c200;
+  margin: 8px 0;
+}
+
+/* ========== 工具栏 ========== */
+.battle-controls {
+  padding: 4px 8px;
+  background: linear-gradient(180deg, #f7f7f7 0%, #efefef 100%);
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.toolbar-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+#attack-button,
+#auto-battle-button,
+#reset-button,
+#restart-button {
+  display: inline-block;
+  width: auto;
+  padding: 3px 12px;
+  margin: 2px 0;
+  background: linear-gradient(180deg, #f5f5f5 0%, #e0e0e0 100%);
+  border: 1px solid #ababab;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #333;
+  height: 24px;
+  line-height: 16px;
+}
+
+#attack-button:hover,
+#auto-battle-button:hover,
+#reset-button:hover,
+#restart-button:hover {
+  background: linear-gradient(180deg, #e8e8e8 0%, #d5d5d5 100%);
+  border-color: #888;
+}
+
+#attack-button:active,
+#auto-battle-button:active {
+  background: #d0d0d0;
+}
+
+#attack-button:disabled,
+#auto-battle-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  color: #555;
+  cursor: pointer;
+}
+
+#auto-skill-checkbox {
+  margin: 0;
+  width: 13px;
+  height: 13px;
+}
+
+#speed-select {
+  padding: 2px 4px;
+  border: 1px solid #ababab;
+  border-radius: 2px;
+  font-size: 12px;
+  height: 24px;
+  background: #fff;
+  color: #333;
+}
+
+/* 技能按钮组 */
+#skill-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+#skill-buttons button {
+  padding: 2px 10px;
+  background: linear-gradient(180deg, #e2efda 0%, #c6e0b4 100%);
+  border: 1px solid #a9d08e;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #375623;
+  height: 22px;
+  line-height: 16px;
+}
+
+#skill-buttons button:hover {
+  background: linear-gradient(180deg, #c6e0b4 0%, #a9d08e 100%);
+}
+
+#skill-buttons button:disabled {
+  opacity: 0.5;
+  cursor: default;
+  background: #e8e8e8;
+  border-color: #ccc;
+  color: #999;
+}
+
+/* ========== 操作日志 ========== */
+#battle-log {
+  height: 200px;
+  overflow-y: auto;
+  padding: 0;
+  font-size: 12px;
+  background: #fff;
+}
+
+#battle-log .log-title {
+  margin: 0;
+  padding: 4px 8px;
+  font-weight: 600;
+  color: #555;
+  font-size: 12px;
+  background: #f2f2f2;
+  border-bottom: 1px solid #d0d0d0;
+  position: sticky;
+  top: 0;
+}
+
+#log-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#log-list li {
+  padding: 2px 8px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 12px;
+  color: #444;
+  line-height: 20px;
+}
+
+#log-list li:nth-child(even) {
+  background-color: #fafafa;
+}
+
+#log-list li:hover {
+  background-color: #e8f0fe;
+}
+
+/* ========== 底部按钮 ========== */
+#style-toggle-button {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  padding: 3px 10px;
+  background: linear-gradient(180deg, #f5f5f5 0%, #e0e0e0 100%);
+  border: 1px solid #ababab;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 11px;
+  color: #555;
+  height: 22px;
+  z-index: 100;
+}
+
+#style-toggle-button:hover {
+  background: linear-gradient(180deg, #e8e8e8 0%, #d5d5d5 100%);
+}
+
+/* ========== 结算页面 ========== */
+#scoreboard-page {
+  padding: 20px;
+}
+
+#scoreboard-page h1 {
+  background: linear-gradient(180deg, #c00000 0%, #a00000 100%);
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+#scoreboard-page #current-score {
+  text-align: center;
+  font-size: 14px;
+  padding: 8px;
+  margin: 10px 0;
+  background: #fff2cc;
+  border: 1px solid #e6c200;
+}
+
+#scoreboard-page h2 {
+  font-size: 13px;
+  color: #333;
+  padding: 4px 8px;
+  background: #f2f2f2;
+  border: 1px solid #d0d0d0;
+  margin: 10px 0 0;
+}
+
+#history-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #d0d0d0;
+  border-top: none;
+}
+
+#history-list li {
+  padding: 3px 8px;
+  font-size: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  line-height: 20px;
+}
+
+#history-list li:nth-child(even) {
+  background: #fafafa;
+}
+
+#restart-button {
+  margin-top: 12px;
+  width: 100%;
+}
+
+/* ========== 点击展开详情 ========== */
+.clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-hint {
+  font-size: 9px;
+  opacity: 0.6;
+  margin-left: auto;
+}
+
+/* 详情区域 */
+.detail-section {
+  padding: 4px 8px;
+  background: #fafafa;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.detail-title {
+  font-size: 11px;
+  color: #888;
+  text-align: center;
+  padding: 3px 0;
+}
+
+.equip-detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 2px 4px;
+  font-size: 11px;
+  border-bottom: 1px solid #f0f0f0;
+  flex-wrap: wrap;
+  min-height: 20px;
+}
+
+.equip-stat {
+  color: #888;
+  font-size: 10px;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.equip-affixes {
+  width: 100%;
+  padding-left: 20px;
+}
+
+.equip-skill-tag {
+  width: 100%;
+  padding-left: 20px;
+  color: #27ae60;
+  font-size: 10px;
+}
+
+.affix-tag {
+  display: inline-block;
+  padding: 0 4px;
+  margin: 1px 2px;
+  font-size: 10px;
+  background: #fff3e0;
+  border: 1px solid #ffe0b2;
+  border-radius: 2px;
+  color: #e65100;
+}
+
+.affix-summary {
+  padding: 2px 4px;
+}
+
+.skill-list {
+  padding: 2px 4px;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 0 4px;
+  margin: 1px 2px;
+  font-size: 10px;
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  border-radius: 2px;
+  color: #2e7d32;
+}
+
+.affix-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 4px;
+  font-size: 11px;
+}
+
+.affix-desc {
+  color: #888;
+  font-size: 10px;
+}
+
+.enemy-desc {
+  font-size: 11px;
+  color: #666;
+  padding: 2px 4px;
+  font-style: italic;
+}
+
+/* ========== 结算页面改版 ========== */
+.score-breakdown {
+  text-align: center;
+  padding: 10px;
+  margin: 10px 0;
+  background: #fff2cc;
+  border: 1px solid #e6c200;
+}
+
+.score-total {
+  font-size: 18px;
+  font-weight: 600;
+  color: #b8860b;
+  margin-bottom: 6px;
+}
+
+.score-items {
+  font-size: 11px;
+  color: #888;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.death-state {
+  margin: 8px 0;
+  border: 1px solid #d0d0d0;
+}
+
+.death-header {
+  font-size: 12px;
+  color: #555;
+  padding: 4px 8px;
+  background: #f2f2f2;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+}
+
+.death-header:hover {
+  background: #e8e8e8;
+}
+
+.death-summary {
+  font-size: 12px;
+  padding: 4px 8px;
+  text-align: center;
+  color: #333;
+  background: #fafafa;
+}
+
+.death-detail {
+  padding: 4px 8px;
+  background: #fafafa;
+  border-top: 1px solid #e8e8e8;
+}
+
+.death-logs {
+  margin: 8px 0;
+  border: 1px solid #d0d0d0;
+}
+
+.death-log-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 12px;
+}
+
+.death-log-list li {
+  padding: 2px 8px;
+  border-bottom: 1px solid #f0f0f0;
+  line-height: 18px;
+}
+
+.death-log-list li:nth-child(even) {
+  background: #fafafa;
+}
