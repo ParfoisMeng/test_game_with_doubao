@@ -1,0 +1,471 @@
+/* ========== 奇幻游戏主题 ========== */
+body.game-theme {
+  font-family: 'MedievalSharp', cursive;
+  background-image: url('https://images.unsplash.com/photo-1501139083538-0139583c060f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1a2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  color: #fdfd96;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-size: 15px;
+}
+
+body.game-theme #game-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(253, 253, 150, 0.3);
+  width: 90%;
+  max-width: 720px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(253, 253, 150, 0.15);
+  overflow: hidden;
+}
+
+body.game-theme h1 {
+  text-align: center;
+  margin: 0;
+  padding: 12px;
+  font-size: 28px;
+  color: #ff6961;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(253,253,150,0.15);
+}
+
+/* 面板布局 */
+body.game-theme .panels-row {
+  border-bottom-color: rgba(253,253,150,0.15);
+}
+
+body.game-theme .panel + .panel {
+  border-left-color: rgba(253,253,150,0.15);
+}
+
+body.game-theme .panel-header {
+  background: linear-gradient(180deg, rgba(255,105,97,0.8) 0%, rgba(200,60,50,0.8) 100%);
+  border-color: rgba(255,105,97,0.4);
+  color: #fff;
+  font-size: 13px;
+  padding: 5px 10px;
+  height: 26px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+body.game-theme .enemy-panel .panel-header {
+  background: linear-gradient(180deg, rgba(39,174,96,0.8) 0%, rgba(30,140,75,0.8) 100%);
+  border-color: rgba(39,174,96,0.4);
+}
+
+body.game-theme .stat-row {
+  border-bottom-color: rgba(253,253,150,0.08);
+}
+
+body.game-theme .stat-label {
+  background-color: rgba(0,0,0,0.3);
+  color: #ccc;
+  border-right-color: rgba(253,253,150,0.15);
+  width: 60px;
+  min-width: 60px;
+}
+
+body.game-theme .stat-value {
+  color: #fdfd96;
+}
+
+body.game-theme .stat-row:hover {
+  background-color: rgba(253,253,150,0.08);
+}
+
+/* 进度条 - 游戏主题 */
+body.game-theme .bar-row {
+  border-bottom-color: rgba(253,253,150,0.08);
+}
+
+body.game-theme .progress-bar {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(253,253,150,0.2);
+}
+
+body.game-theme .hp-bar .progress-fill {
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+  box-shadow: 0 0 4px rgba(46,204,113,0.4);
+}
+
+body.game-theme .hp-bar .hp-low {
+  background: linear-gradient(90deg, #e67e22, #f39c12);
+  box-shadow: 0 0 4px rgba(243,156,18,0.4);
+}
+
+body.game-theme .hp-bar .hp-critical {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+  box-shadow: 0 0 4px rgba(231,76,60,0.4);
+}
+
+body.game-theme .hp-bar .hp-enemy {
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+}
+
+body.game-theme .hp-bar .hp-elite {
+  background: linear-gradient(90deg, #e67e00, #f5a623);
+  box-shadow: 0 0 4px rgba(245,166,35,0.4);
+}
+
+body.game-theme .hp-bar .hp-boss {
+  background: linear-gradient(90deg, #e74c3c, #ff4444);
+  box-shadow: 0 0 4px rgba(231,76,60,0.6);
+}
+
+body.game-theme .exp-bar .progress-fill {
+  background: linear-gradient(90deg, #3498db, #5dade2);
+  box-shadow: 0 0 4px rgba(52,152,219,0.4);
+}
+
+/* 装备栏 - 游戏主题 */
+body.game-theme .equip-section {
+  border-bottom-color: rgba(253,253,150,0.08);
+}
+
+body.game-theme .equip-title {
+  border-bottom-color: rgba(253,253,150,0.08);
+}
+
+body.game-theme .equip-grid {
+  background: rgba(0,0,0,0.15);
+}
+
+body.game-theme .equip-slot {
+  border-color: rgba(253,253,150,0.05);
+}
+
+body.game-theme .equip-slot:hover {
+  background: rgba(253,253,150,0.08);
+}
+
+body.game-theme .equip-empty {
+  color: #555 !important;
+}
+
+/* 敌人类型 */
+body.game-theme .panel-header.enemy-boss {
+  background: linear-gradient(180deg, rgba(200,0,0,0.9) 0%, rgba(160,0,0,0.9) 100%) !important;
+  border-color: rgba(200,0,0,0.6) !important;
+  text-shadow: 0 0 8px rgba(255,0,0,0.5);
+}
+
+body.game-theme .panel-header.enemy-elite {
+  background: linear-gradient(180deg, rgba(230,126,0,0.9) 0%, rgba(200,100,0,0.9) 100%) !important;
+  border-color: rgba(230,126,0,0.6) !important;
+}
+
+body.game-theme .enemy-type-badge {
+  background: rgba(255,255,255,0.2);
+}
+
+body.game-theme .affix-text {
+  color: #ff8c00 !important;
+}
+
+/* 巅峰面板 - 游戏主题 */
+body.game-theme #paragon-panel {
+  background: rgba(218,165,32,0.15);
+  border-bottom-color: rgba(218,165,32,0.3);
+  padding: 5px 10px;
+}
+
+body.game-theme .paragon-header {
+  color: #daa520;
+  text-shadow: 0 0 6px rgba(218,165,32,0.4);
+}
+
+body.game-theme .paragon-exp {
+  color: #aa8;
+}
+
+body.game-theme .paragon-stats {
+  color: #998;
+}
+
+body.game-theme .paragon-points {
+  color: #ffd700;
+}
+
+body.game-theme .paragon-btn {
+  background: linear-gradient(180deg, rgba(218,165,32,0.6) 0%, rgba(180,130,20,0.6) 100%);
+  border-color: rgba(218,165,32,0.5);
+  color: #fff;
+  font-family: 'MedievalSharp', cursive;
+}
+
+body.game-theme .paragon-btn:hover {
+  background: linear-gradient(180deg, rgba(218,165,32,0.8) 0%, rgba(180,130,20,0.8) 100%);
+}
+
+/* 工具栏 */
+body.game-theme .battle-controls {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(253,253,150,0.15);
+  padding: 6px 10px;
+}
+
+body.game-theme .toolbar-row {
+  gap: 8px;
+}
+
+body.game-theme #attack-button,
+body.game-theme #auto-battle-button,
+body.game-theme #reset-button,
+body.game-theme #restart-button {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #ff6961 0%, #e0504a 100%);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'MedievalSharp', cursive;
+  box-shadow: 0 0 10px rgba(255, 105, 97, 0.4);
+  height: auto;
+  line-height: 1.2;
+}
+
+body.game-theme #attack-button:hover,
+body.game-theme #auto-battle-button:hover,
+body.game-theme #reset-button:hover,
+body.game-theme #restart-button:hover {
+  background: linear-gradient(180deg, #ff4d42 0%, #cc3a33 100%);
+}
+
+body.game-theme .checkbox-label {
+  color: #fdfd96;
+  font-size: 13px;
+}
+
+body.game-theme #speed-select {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.9);
+  font-size: 13px;
+  font-family: 'MedievalSharp', cursive;
+  color: #333;
+  height: auto;
+}
+
+body.game-theme #skill-buttons {
+  gap: 6px;
+  margin-top: 6px;
+}
+
+body.game-theme #skill-buttons button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #27ae60 0%, #1e8c4b 100%);
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: 'MedievalSharp', cursive;
+  box-shadow: 0 0 8px rgba(39, 174, 96, 0.4);
+  height: auto;
+  line-height: 1.2;
+}
+
+body.game-theme #skill-buttons button:hover {
+  background: linear-gradient(180deg, #219a52 0%, #1a7a3e 100%);
+}
+
+body.game-theme #skill-buttons button:disabled {
+  background: rgba(100,100,100,0.5);
+  box-shadow: none;
+  color: #999;
+}
+
+/* 日志 */
+body.game-theme #battle-log {
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+}
+
+body.game-theme #battle-log .log-title {
+  background: rgba(0,0,0,0.3);
+  color: #fdfd96;
+  border-bottom-color: rgba(253,253,150,0.15);
+  font-size: 12px;
+}
+
+body.game-theme #log-list li {
+  color: #ddd;
+  border-bottom-color: rgba(253,253,150,0.08);
+  font-size: 13px;
+}
+
+body.game-theme #log-list li:nth-child(even) {
+  background-color: rgba(255,255,255,0.03);
+}
+
+body.game-theme #log-list li:hover {
+  background-color: rgba(253,253,150,0.08);
+}
+
+/* 切换按钮 */
+body.game-theme #style-toggle-button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #ff6961 0%, #e0504a 100%);
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'MedievalSharp', cursive;
+  box-shadow: 0 0 10px rgba(255, 105, 97, 0.4);
+  height: auto;
+}
+
+body.game-theme #style-toggle-button:hover {
+  background: linear-gradient(180deg, #ff4d42 0%, #cc3a33 100%);
+}
+
+/* 结算 */
+body.game-theme #scoreboard-page {
+  text-align: center;
+  padding: 24px;
+}
+
+body.game-theme #scoreboard-page h1 {
+  color: #ff6961;
+  background: transparent;
+  border: none;
+}
+
+body.game-theme #scoreboard-page #current-score {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(253,253,150,0.3);
+  color: #fdfd96;
+}
+
+body.game-theme #scoreboard-page h2 {
+  color: #fdfd96;
+  background: rgba(0,0,0,0.3);
+  border-color: rgba(253,253,150,0.15);
+}
+
+body.game-theme #history-list {
+  border-color: rgba(253,253,150,0.15);
+}
+
+body.game-theme #history-list li {
+  color: #ddd;
+  border-bottom-color: rgba(253,253,150,0.08);
+}
+
+body.game-theme .paragon-summary {
+  background: rgba(218,165,32,0.15);
+  border-color: rgba(218,165,32,0.3);
+  color: #daa520;
+}
+
+/* 详情区域 - 游戏主题 */
+body.game-theme .detail-section {
+  background: rgba(0,0,0,0.2);
+  border-bottom-color: rgba(253,253,150,0.08);
+}
+
+body.game-theme .detail-title {
+  color: rgba(253,253,150,0.5);
+}
+
+body.game-theme .equip-detail-row {
+  border-bottom-color: rgba(253,253,150,0.05);
+}
+
+body.game-theme .equip-stat {
+  color: #998;
+}
+
+body.game-theme .equip-skill-tag {
+  color: #2ecc71;
+}
+
+body.game-theme .affix-tag {
+  background: rgba(255,140,0,0.2);
+  border-color: rgba(255,140,0,0.3);
+  color: #ffa500;
+}
+
+body.game-theme .skill-tag {
+  background: rgba(46,204,113,0.2);
+  border-color: rgba(46,204,113,0.3);
+  color: #2ecc71;
+}
+
+body.game-theme .affix-desc {
+  color: #aa8;
+}
+
+body.game-theme .enemy-desc {
+  color: #998;
+}
+
+body.game-theme .equip-empty {
+  color: #555 !important;
+}
+
+/* 结算页面 - 游戏主题 */
+body.game-theme .score-breakdown {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(253,253,150,0.3);
+}
+
+body.game-theme .score-total {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255,215,0,0.4);
+}
+
+body.game-theme .score-items {
+  color: #aa8;
+}
+
+body.game-theme .death-state {
+  border-color: rgba(253,253,150,0.15);
+}
+
+body.game-theme .death-header {
+  background: rgba(0,0,0,0.3);
+  color: #fdfd96;
+}
+
+body.game-theme .death-header:hover {
+  background: rgba(253,253,150,0.1);
+}
+
+body.game-theme .death-summary {
+  background: rgba(0,0,0,0.15);
+  color: #fdfd96;
+}
+
+body.game-theme .death-detail {
+  background: rgba(0,0,0,0.2);
+  border-top-color: rgba(253,253,150,0.08);
+}
+
+body.game-theme .death-logs {
+  border-color: rgba(253,253,150,0.15);
+}
+
+body.game-theme .death-log-list li {
+  color: #ddd;
+  border-bottom-color: rgba(253,253,150,0.05);
+}
+
+body.game-theme .death-log-list li:nth-child(even) {
+  background: rgba(255,255,255,0.03);
+}
